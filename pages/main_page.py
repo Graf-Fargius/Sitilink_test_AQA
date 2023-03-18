@@ -25,7 +25,7 @@ class Main_page(Base):
     click_first_product="/html/body/div[6]/div[2]/main/section/div[1]/div[1]/div[3]/div[1]/section/div[4]/div[6]/div[2]/div[1]/div[1]/button"
     cart_busket= "//div[@class='HeaderMenu__buttons  HeaderMenu__buttons_basket']"
     filter_for_second_product="//div[@data-meta-value='Товары со скидкой']"
-    check_box_for_second_product="//*[@id='__next']/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[3]/div[6]/div[2]/div/div[1]/div/div/div/div/div/div[9]/div/label/span[2]/span"
+    check_box_for_second_product='//*[@id="__next"]/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[3]/div[6]/div[2]/div/div[1]/div/div/div/div/div/div[8]/div/label/span[2]/span'
     second_product="//*[@id='__next']/div/main/section/div[2]/div/div/section/div[2]/div[2]/div[1]/div/div[7]/div[2]/button"
     cart_main_page= "//a[@href='/order/']"
 
@@ -103,8 +103,8 @@ class Main_page(Base):
         action = ActionChains(self.driver)
         slider_1=self.driver.find_element(By.XPATH,"//*[@id='__next']/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[2]/div[3]/div/div[4]")
         action.click_and_hold(slider_1).move_by_offset(100,0).release().perform()
-        slider_2=self.driver.find_element(By.XPATH,"//*[@id='__next']/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[2]/div[3]/div/div[5]")
-        action.click_and_hold(slider_2).move_by_offset(-100, 0).release().perform()
+        # slider_2=self.driver.find_element(By.XPATH,"//*[@id='__next']/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[2]/div[3]/div/div[5]")
+        # action.click_and_hold(slider_2).move_by_offset(-100, 0).release().perform()
         time.sleep(1)
         print("Hold Slider")
 
@@ -116,6 +116,7 @@ class Main_page(Base):
 
     def click_check_box_for_second_product(self):
         self.get_check_box_for_second_product().click()
+        time.sleep(1)
         print("Click check box")
 
     def click_second_product(self):
@@ -160,6 +161,7 @@ class Main_page(Base):
         self.click_check_box_for_second_product()
         self.click_second_product()
         self.click_cart_2()
+        self.assert_url("https://www.citilink.ru/order/")
         self.get_screenshot()
 
 

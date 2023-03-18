@@ -62,7 +62,7 @@ class Login_page(Base):
         self.get_current_url()
         self.assert_word(self.get_main_word(), 'Войти')
         self.click_main_word()
-        self.input_user_name("89656527610")
+        self.input_user_name("89373049157")
         self.input_password("Piperoni-1")
         self.click_main_button()
 

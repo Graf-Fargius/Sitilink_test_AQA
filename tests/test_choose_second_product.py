@@ -34,3 +34,4 @@ def test_select_product_2(set_up):
     cp.accept_product()
     driver.quit()
 
+

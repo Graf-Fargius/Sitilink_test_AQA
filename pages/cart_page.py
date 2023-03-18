@@ -69,7 +69,6 @@ class Cart_page(Main_page):
         self.get_accept_purchase()
         self.click_accept_purchase()
         self.check_prices()
-        self.test_value('//*[@id="__next"]/div/div[2]/div/div/div/div/div[1]/div[4]/div/div[2]/div/div/div[5]/div/div[1]/div/div/span[2]/span')
         self.get_screenshot()
 
     def clear_cart_products(self):

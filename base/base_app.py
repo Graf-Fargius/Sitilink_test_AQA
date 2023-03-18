@@ -1,4 +1,6 @@
 import datetime
+from selenium.webdriver.common.by import By
+from selenium import webdriver
 
 class Base():
     def __init__(self, driver):
@@ -17,10 +19,6 @@ class Base():
         assert value_word==result
         print("Good value word")
 
-        """Method text words"""
-
-    def test_value(self, word):
-        print(word.encode())
 
 
         """Method Screenshot"""

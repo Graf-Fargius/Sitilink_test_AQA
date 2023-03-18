@@ -35,3 +35,4 @@ def test_select_product_1(set_up):
     cp.accept_product()
     driver.quit()
 
+
