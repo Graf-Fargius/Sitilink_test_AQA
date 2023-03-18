@@ -30,3 +30,4 @@ def test_clear_product(set_up):
     cp.clear_cart_products()
     driver.quit()
 
+

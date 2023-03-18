@@ -13,7 +13,7 @@ from pages.main_page import Main_page
 from pages.cart_page import Cart_page
 from selenium.webdriver.chrome.options import Options
 
-@pytest.mark.run(order=2)
+@pytest.mark.run(order=1)
 def test_select_product_2(set_up):
     options=Options()
     options.add_experimental_option('excludeSwitches', ['enable-Logging'])
@@ -33,4 +33,5 @@ def test_select_product_2(set_up):
     cp=pages.cart_page.Cart_page(driver)
     cp.accept_product()
     driver.quit()
+
 
