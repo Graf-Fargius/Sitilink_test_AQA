@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import  WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 from pages.main_page import Main_page
 from base.base_app import Base
@@ -50,9 +51,7 @@ class Cart_page(Main_page):
         print("Click accept purchase")
 
     def check_prices(self):
-        action=ActionChains(self.driver)
-        get_perfmon_order=WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//span[@class='css-1xdhyk6 e1hf2t4f0']")))
-        action.move_to_element(get_perfmon_order).release().perform()
+        get_perfmon_order= self.driver.find_element(By.XPATH,"/html/body").send_keys(Keys.END)
         print("Scroll itog prices")
 
 
@@ -69,6 +68,7 @@ class Cart_page(Main_page):
         self.get_accept_purchase()
         self.click_accept_purchase()
         self.check_prices()
+        self.product_value('//*[@id="__next"]/div/div[2]/div/div/div/div/div[1]/div[4]/div/div[2]/div/div/div[5]/div/div[1]/div/span')
         self.get_screenshot()
 
     def clear_cart_products(self):

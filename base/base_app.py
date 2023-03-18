@@ -20,6 +20,14 @@ class Base():
         print("Good value word")
 
 
+        """Method read text"""
+
+    def product_value(self, word):
+        price_product_value = self.driver.find_element(By.XPATH, word)
+        price_product_value_1=price_product_value.text
+        print(price_product_value_1)
+
+
 
         """Method Screenshot"""
 
@@ -27,6 +35,7 @@ class Base():
         now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
         name_screeenshot = 'screenshot ' + now_date + '.png'
         self.driver.save_screenshot('.\\screen\\' + name_screeenshot)
+        print("Screenshot is done")
 
         """Method assert url"""
 

@@ -97,14 +97,15 @@ class Main_page(Base):
     def executing_filters(self):
         action = ActionChains(self.driver)
         action.move_to_element((self.driver.find_element(By.XPATH,"//div[@data-meta-value='Товары со скидкой']"))).perform()
+        print("Scrolling is done to 'Товары со скидкой'")
 
 
     def hold_price_slider(self):
         action = ActionChains(self.driver)
         slider_1=self.driver.find_element(By.XPATH,"//*[@id='__next']/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[2]/div[3]/div/div[4]")
         action.click_and_hold(slider_1).move_by_offset(100,0).release().perform()
-        # slider_2=self.driver.find_element(By.XPATH,"//*[@id='__next']/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[2]/div[3]/div/div[5]")
-        # action.click_and_hold(slider_2).move_by_offset(-100, 0).release().perform()
+        slider_2=self.driver.find_element(By.XPATH,"//*[@id='__next']/div/main/section/div[2]/div/div/section/div[1]/div/div/div[2]/div[3]/div/div[3]/div[2]/div[3]/div/div[5]")
+        action.click_and_hold(slider_2).move_by_offset(-100, 0).release().perform()
         time.sleep(1)
         print("Hold Slider")
 
@@ -112,7 +113,7 @@ class Main_page(Base):
         action = ActionChains(self.driver)
         check_box_for_second_product = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//div[@data-meta-value='Ryzen 7']")))
         action.move_to_element(check_box_for_second_product).release().perform()
-        print("Scrolling done")
+        print("Scrolling is done to filter 'Ryzen 7'")
 
     def click_check_box_for_second_product(self):
         self.get_check_box_for_second_product().click()
@@ -132,6 +133,7 @@ class Main_page(Base):
 
     def click_cart_2(self):
         self.get_cart_2().click()
+        print("Click on Cart")
 
 
 
